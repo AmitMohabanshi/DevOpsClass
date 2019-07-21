@@ -1,7 +1,7 @@
 ---
 # defaults file for tomcat_aws
-region: us-east-1
+region: ap-south-1
 instance_type: t2.micro
-ami: ami-26ebbc5c  # Redhat
-keypair: pk-key # pem file name
+ami: ami-5b673c34  # Redhat
+keypair: Ansible_key # pem file name
 
