@@ -1,0 +1,26 @@
+---
+name: Install required packages
+hosts: localhost
+vars:
+ packages:
+     - httpd
+     - binutils
+     - glibc
+     - ksh
+     - libaio
+     - libXest
+     - gcc
+     - make
+     - sysstat
+     - unixODBC
+     - mongodb
+     - nodejs
+     - grunt
+ 
+ tasks:
+     - yum:
+       name: "{{ item }}"
+       state: present
+       with_items: "{{ package }}"
+       register: output
+...

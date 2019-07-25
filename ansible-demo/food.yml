@@ -1,0 +1,16 @@
+- hosts: localhost
+  gather_facts: false
+  vars:
+    Fruits:
+        - Apple
+        - Banana
+        - Orange
+
+   Vegetables:
+        - Carrot
+        - Tomato
+        - Cucumber
+
+ tasks:
+   -
+     msg:"

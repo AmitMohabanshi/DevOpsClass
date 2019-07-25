@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: Update nameserver entry into resolv.conf file on localhost
+
+  tasks:
+     - name: Update nameserver entry into resolv.conf file
+       lineinfile: 
+            path: /etc/resolv.conf
+            line: 'nameserver {{ nameserver_ip }}'
+
+     - name: Disable SNMP port
+       firewalld:
+            port: '{{ snmp_port }}'
+            permanent: true
+            state: disabled
+
+...

@@ -1,0 +1,15 @@
+- 
+  hosts: localhost
+  gather_facts: false
+  name: Print list of fruits
+  vars: 
+    fruits:
+      - Apple
+      - Banana
+      - Grapes
+      - Orange
+
+  tasks:
+    -
+      debug: msg="item"
+      with_items: '{{ fruits }}'
