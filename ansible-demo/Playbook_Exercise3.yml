@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: false
+  name: check output of two commands
+
+  tasks:
+    -
+     name: check date
+     command: date
+
+    -
+     name: check local host file
+     command: cat /etc/hosts
+...

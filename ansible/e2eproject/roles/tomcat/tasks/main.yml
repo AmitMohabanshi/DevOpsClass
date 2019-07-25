@@ -1,5 +1,0 @@
----
-# tasks file for tomcat
-- include: create_users.yml
-- include: install_packages.yml
-- include: configure_tomcat.yml

@@ -1,0 +1,15 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+    Fruit: Apple
+    Drink: Water
+    Dessert: Cake
+    Vegetable: Carrot
+
+
+  tasks:
+   - 
+     debug: msg="item"
+     with_items: '{{ Vegetable }}'
+...

@@ -1,0 +1,11 @@
+---
+- hosts: all
+
+  tasks:
+    - name: Check if user exists
+      action: chkuser username=root
+      register: username
+      become: yes
+
+    - debug: msg="{{ username.msg }}"
+...

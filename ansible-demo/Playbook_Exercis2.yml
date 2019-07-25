@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - 
+      name: Display host file for localhost
+      command: cat /etc/hosts
+...

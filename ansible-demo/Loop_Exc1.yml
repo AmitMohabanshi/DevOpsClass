@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: false
+  var: 
+   fruits:
+      - Apple
+      - Banana
+      - Orange
+      - Grapes
+
+  tasks:
+      
+    - command: echo "{{ items }}"
+      with_items: '{{ fruits }}'
+    - debug: msg= "{{ items }}"
+      with_items: '{{ fruits }}'
+...

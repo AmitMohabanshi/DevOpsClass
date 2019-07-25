@@ -1,0 +1,26 @@
+---
+- hosts: web
+  user: ec2-user
+  sudo: true
+  gather_facts: false
+
+  vars:
+    pack_name: nagios
+    
+  tasks:
+    - name: Install {{ pack_name }}
+      yum: pkg={{ pack_name }} state=installed
+      become: yes
+      register: output
+
+    - debug: var=output
+
+    - name: Print Successful message
+      debug: msg="Installation is successful"
+      when: output is succeeded
+ 
+    - name: Print Failure Message
+      debug: msg="Installation is failed"
+      when: output is failed
+
+...

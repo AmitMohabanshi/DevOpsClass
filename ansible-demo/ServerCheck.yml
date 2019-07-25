@@ -1,0 +1,52 @@
+---
+- hosts: web
+  gather_facts: false
+  vars:
+    Date: date
+    Uptime: uptime
+    Hostcheck: cat /etc/hosts/
+
+
+  tasks:
+    - name: Check date
+      command: date
+      become: yes
+      register: output
+
+    - debug: var=output
+
+    - name: Check uptime
+      command: uptime
+      become: yes
+      register: output1
+
+    - debug: var=output1
+
+    - name: Check host file
+      command: cat /etc/hosts
+      become: yes
+      register: output2
+
+    - debug: var=output2
+
+    - name: Add date, file and uptime into file
+      become: yes
+      lineinfile:
+          path: /opt/log
+          line: "{{ output.stdout }}"
+          line: "{{ output1.stdout }}"
+          line: "{{ output2.stdout }}"
+          create: yes
+      delegate_to: localhost
+
+    - name: Add date, file and uptime into file
+      become: yes
+      lineinfile:
+          path: /opt/log
+          line: "{{ output1.stdout }}"
+          create: yes
+      delegate_to: localhost
+
+
+...
+
